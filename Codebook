@@ -1,1 +1,210 @@
+# Age 
+
+<var ID="v29843766" name="edad" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">¿Cuántos años tienes?</labl>
+<sumStat type="medn">13.0</sumStat>
+<sumStat type="mean">13.427423981640844</sumStat>
+<sumStat type="vald">3486.0</sumStat>
+<sumStat type="invd">17.0</sumStat>
+<sumStat type="min">10.0</sumStat>
+<sumStat type="stdev">1.0128497613793979</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="max">25.0</sumStat>
+    #all Numeric Value of Age 11 - 25 
+<catgry>
+<catValu>21</catValu>
+<labl level="category">21</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>17</catValu>
+<labl level="category">17</labl>
+<catStat type="freq">10</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>25</catValu>
+<labl level="category">25 o más</labl>
+<catStat type="freq">6</catStat>
+</catgry>
+<catgry>
+<catValu>12</catValu>
+<labl level="category">12</labl>
+<catStat type="freq">238</catStat>
+</catgry>
+<catgry>
+<catValu>22</catValu>
+<labl level="category">22</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>18</catValu>
+<labl level="category">18</labl>
+<catStat type="freq">1</catStat>
+</catgry>
+<catgry>
+<catValu>23</catValu>
+<labl level="category">23</labl>
+<catStat type="freq">1</catStat>
+</catgry>
+<catgry>
+<catValu>15</catValu>
+<labl level="category">15</labl>
+<catStat type="freq">215</catStat>
+</catgry>
+<catgry>
+<catValu>16</catValu>
+<labl level="category">16</labl>
+<catStat type="freq">24</catStat>
+</catgry>
+<catgry>
+<catValu>24</catValu>
+<labl level="category">24</labl>
+<catStat type="freq">1</catStat>
+</catgry>
+<catgry>
+<catValu>10</catValu>
+<labl level="category">10 o menos</labl>
+<catStat type="freq">18</catStat>
+</catgry>
+<catgry>
+<catValu>13</catValu>
+<labl level="category">13</labl>
+<catStat type="freq">1863</catStat>
+</catgry>
+<catgry>
+<catValu>19</catValu>
+<labl level="category">19</labl>
+<catStat type="freq">3</catStat>
+</catgry>
+<catgry>
+<catValu>11</catValu>
+<labl level="category">11</labl>
+<catStat type="freq">4</catStat>
+</catgry>
+<catgry>
+<catValu>20</catValu>
+<labl level="category">20</labl>
+<catStat type="freq">5</catStat>
+</catgry>
+<catgry>
+<catValu>14</catValu>
+<labl level="category">14</labl>
+<catStat type="freq">1097</catStat>
+</catgry>
+   <varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:rbjQr4KfNn7HZc6qy7+jDA==</notes>
+
+  #Type of Sex
+
+  <var ID="v29843730" name="sexo" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">¿Eres varón o mujer?</labl>
+<sumStat type="mode">.</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<sumStat type="vald">3430.0</sumStat>
+<sumStat type="invd">73.0</sumStat>
+<sumStat type="stdev">0.4981564828197599</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="max">1.0</sumStat>
+<sumStat type="mean">0.5437317784256526</sumStat>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Mujer</labl>
+<catStat type="freq">1865</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">Varón</labl>
+<catStat type="freq">1565</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:TWchhb8qgbMrQSdk6h45sA==</notes>
+</var>
+
+#Internet access
+
+<var ID="v29843825" name="pcinter" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">¿Tienes acceso a Internet en tu casa?</labl>
+<sumStat type="mean">0.9555170421721553</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<sumStat type="invd">41.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="max">2.0</sumStat>
+<sumStat type="vald">3462.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="stdev">0.2527797636806857</sumStat>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">No sé</labl>
+<catStat type="freq">37</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">3234</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">191</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:3bmYPtu8GzQCSkAZ/vjjxQ==</notes>
+</var>
+
+#internet filter
+
+  <var ID="v29843825" name="pcinter" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">¿Tienes acceso a Internet en tu casa?</labl>
+<sumStat type="mean">0.9555170421721553</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<sumStat type="invd">41.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="max">2.0</sumStat>
+<sumStat type="vald">3462.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="stdev">0.2527797636806857</sumStat>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">No sé</labl>
+<catStat type="freq">37</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">3234</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">191</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:3bmYPtu8GzQCSkAZ/vjjxQ==</notes>
+</var>
+
+# IF they have a Pc or tablet in their room.
 
