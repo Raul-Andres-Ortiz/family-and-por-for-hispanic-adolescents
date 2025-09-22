@@ -169,7 +169,7 @@
 <notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:3bmYPtu8GzQCSkAZ/vjjxQ==</notes>
 </var>
 
-#internet filter
+#if they have internet in their house.
 
   <var ID="v29843825" name="pcinter" intrvl="contin">
 <location fileid="f6579839"/>
@@ -206,5 +206,228 @@
 <notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:3bmYPtu8GzQCSkAZ/vjjxQ==</notes>
 </var>
 
+#Internet filter
+
+<var ID="v29843773" name="pcfiltro" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">La red de tu casa, ¿tiene filtro (programa que no deja acceder a algunas páginas</labl>
+<sumStat type="vald">3382.0</sumStat>
+<sumStat type="invd">121.0</sumStat>
+<sumStat type="mean">0.8598462448255466</sumStat>
+<sumStat type="max">2.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="stdev">0.8832409063686829</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">No sé</labl>
+<catStat type="freq">1115</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">678</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">1589</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:nSgRQr1Pygm+daIxdAFrOg==</notes>
+</var>
+
 # IF they have a Pc or tablet in their room.
 
+<var ID="v29843773" name="pcfiltro" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">La red de tu casa, ¿tiene filtro (programa que no deja acceder a algunas páginas</labl>
+<sumStat type="vald">3382.0</sumStat>
+<sumStat type="invd">121.0</sumStat>
+<sumStat type="mean">0.8598462448255466</sumStat>
+<sumStat type="max">2.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="stdev">0.8832409063686829</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">No sé</labl>
+<catStat type="freq">1115</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">678</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">1589</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:nSgRQr1Pygm+daIxdAFrOg==</notes>
+</var>
+
+    #if They have their own phone or tablet.
+<var ID="v29843745" name="smart" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">¿Tienes smartphone/tablet etc. propio (tuyo)?</labl>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="mean">0.9072732541292381</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<sumStat type="invd">52.0</sumStat>
+<sumStat type="vald">3451.0</sumStat>
+<sumStat type="stdev">0.29009116074505803</sumStat>
+<sumStat type="max">1.0</sumStat>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">3131</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">320</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:0IWk+4Zf14hu3RM2ZeUwsQ==</notes>
+</var>
+    #If their phone or tablet have active data.
+<var ID="v29843836" name="datos" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">Tu smartphone/tablet propia, ¿tiene datos móviles activados?</labl>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="medn">1.0</sumStat>
+<sumStat type="invd">426.0</sumStat>
+<sumStat type="mean">0.7474813129671761</sumStat>
+<sumStat type="vald">3077.0</sumStat>
+<sumStat type="max">1.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="stdev">0.4345277469459132</sumStat>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Sí</labl>
+<catStat type="freq">2300</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">No</labl>
+<catStat type="freq">777</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:FTkhyBf1GZGxmRSt9d49sw==</notes>
+</var>
+    #Seeing any type of porn
+<var ID="v29843742" name="verporno" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">Ver material erótico o pornográfico</labl>
+<sumStat type="mean">0.3458385876418665</sumStat>
+<sumStat type="medn">0.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="invd">331.0</sumStat>
+<sumStat type="vald">3172.0</sumStat>
+<sumStat type="max">4.0</sumStat>
+<sumStat type="stdev">0.9800300340613196</sumStat>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>4</catValu>
+<labl level="category">3 o más días a la semana</labl>
+<catStat type="freq">148</catStat>
+</catgry>
+<catgry>
+<catValu>3</catValu>
+<labl level="category">1-2 días a la semana</labl>
+<catStat type="freq">69</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">Nunca</labl>
+<catStat type="freq">2726</catStat>
+</catgry>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Menos de 1 día al mes</labl>
+<catStat type="freq">160</catStat>
+</catgry>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">1-3 días al mes</labl>
+<catStat type="freq">69</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:RauDpJIVh5NjTIWATKoUmA==</notes>
+</var>
+
+    #Porn Mobile access
+<var ID="v29843815" name="verporno_movil" intrvl="contin">
+<location fileid="f6579839"/>
+<labl level="variable">Ver material erótico o pornográfico en el móvil</labl>
+<sumStat type="max">4.0</sumStat>
+<sumStat type="mode">.</sumStat>
+<sumStat type="mean">0.3568949195329751</sumStat>
+<sumStat type="stdev">0.9836658153254921</sumStat>
+<sumStat type="medn">0.0</sumStat>
+<sumStat type="min">0.0</sumStat>
+<sumStat type="invd">334.0</sumStat>
+<sumStat type="vald">3169.0</sumStat>
+<catgry>
+<catValu>1</catValu>
+<labl level="category">Menos de 1 día al mes</labl>
+<catStat type="freq">170</catStat>
+</catgry>
+<catgry>
+<catValu>2147483622</catValu>
+<labl level="category">No quiero contestar</labl>
+<catStat type="freq">0</catStat>
+</catgry>
+<catgry>
+<catValu>3</catValu>
+<labl level="category">1-2 días a la semana</labl>
+<catStat type="freq">67</catStat>
+</catgry>
+<catgry>
+<catValu>0</catValu>
+<labl level="category">Nunca</labl>
+<catStat type="freq">2699</catStat>
+</catgry>
+<catgry>
+<catValu>2</catValu>
+<labl level="category">1-3 días al mes</labl>
+<catStat type="freq">86</catStat>
+</catgry>
+<catgry>
+<catValu>4</catValu>
+<labl level="category">3 o más días a la semana</labl>
+<catStat type="freq">147</catStat>
+</catgry>
+<varFormat type="numeric" formatname="float"/>
+<notes subject="Universal Numeric Fingerprint" level="variable" type="VDC:UNF">UNF:6:2TQPlMCrZgJWpS07JHugIw==</notes>
+</var>
