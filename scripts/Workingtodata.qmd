@@ -1,0 +1,224 @@
+---
+title: "Workingtodata"
+format: html
+---
+
+# Files packages Installation
+
+## File setup: Install the required packages
+
+```{r install.packages}
+install.packages("tidyverse")
+
+```
+
+## Library
+
+✔️#did the library for ggplot2
+
+```{r load-Library}
+library(tidyverse)
+library(descr)
+library(knitr)
+library(ggplot2)
+library(PDS)
+library(dplyr)
+```
+
+```{r}
+# Packages for SAS, SPSS, and Stata
+library(haven)
+library(labelled)
+
+```
+
+### Load-Data to File Path
+
+```{r load-data}
+# Define the file path (going up one level from /scripts to the main directory)
+file_path <- file.path("..", "data", "data.dta")
+
+# Load the CSV file into a dataframe (automatically a tibble)
+df <-read_dta(file_path)
+
+# View the first few words
+head(df)
+
+```
+
+### ❌STAT labeled: looking for
+
+```{r- STAT labelled::look_for}
+#STAT files can make a codebook from their files
+#codebook <- labelled::look_for(df)
+```
+
+### Columns Names
+
+```{r}
+#check column names
+colnames(df)
+```
+
+check the column names up
+
+View summary statistics
+
+```{r}
+#View summary statistics
+summary(df)
+```
+
+Check the variable types.
+
+```{r glimpse}
+#Check data sturcture
+glimpse(df)
+```
+
+## Frequency Tables
+
+Using the descr package to create frequency tables.
+
+### Edad = Age
+
+```{r freq-edad(age)}
+# Frequency table for edad, where data was collected
+freq(as.ordered(df$edad), plot = FALSE)
+```
+
+Interpretation: While I am in the US, this study is a Spanish research study. I will use age as a variable or limit the analyses to a certain age range based on the exploration of the research. The finding that I saw was that there are more surveys between ages 12- 17 being with a frequency of 10. There is also some NA being 17 in which could affect the study if assigned an age number, and need to explore more to verify where it comes from, and there are some age groups that have a frequency of zero, but it's not included.
+
+### Sexo "Sex"
+
+```{r freq-sexo(sex)}
+#Frequency table for sexo will be about the type of gender are there.
+freq(as.ordered(df$sexo), plot = FALSE)
+```
+
+Interpretation
+
+This will depend on who is conducting the survey. When analyzing pre-hand, I thought there would be only two variables, but there are also unknown variables, being 73 NA not wanting to respond, but seeing that one gender Female did more than male is what I had in mind. The difference, though, is not much thinking it would be reverse being Male being on top of female.
+
+### Internet Filter
+
+```{r freq- pcfiltro}
+# Frequency table for pcfiltro if internet's filter at home.
+freq(as.ordered(df$pcfiltro), plot = FALSE)
+```
+
+Interpretation
+
+This will be about whether they have an internet filter at their home. Seeing that most are zero(No), being above other variables. Yes, being the integer of 1, and 2 being that they don't know if they have a filter. No being in the lead, having 1589 within all categories, but some of its missing a dataset of NA's 121 that needs to be explored.
+
+### Verporno
+
+```{r}
+# (If they see erotic material) frequency on verporno on a PC
+freq(as.ordered(df$verporno), plot = FALSE)
+```
+
+Interpretation
+
+4 being (3 days or more in the days). 3 being 1-2 days in the week. 0 being never. 1 being less than a day, a month. 2 being 1-3 days per month. There is a placeholder for NA, meaning not wanting to answer, but has a 0 frequency.
+
+### Verporno_mobil
+
+```{r}
+# If they seeing erotic material frequency on verporno_mobil.
+freq(as.ordered(df$verporno_movil), plot = FALSE)
+```
+
+Interpretation
+
+0 being never. 1 being less than a day a month. 2 being 1-3 days a month. 3 being 1-2 days a week. 4 being 3 or more days a week. A numerical placeholder of not wanting to answer, with a frequency of 0.
+
+## Data Management
+
+Missing data
+
+variables for my question
+
+The relationship between age and where they see more between seeing porn on a PC or a mobile? Who sees more Male or female children from the age of 11-18?
+
+For the first one, it would be a filter from PC and mobile, and relate it to age. Add both PC and Mobile to filter male and female through the age range of 11- 18. Using Varibles being logical and adding pc and mobile. Also using an age range.
+
+Missing variables(NA) for when using them. Edad(17), verporno(331), moblie(334), sexo(73).
+
+```{r missing data for question}
+#variable using 9 for NA but need to be concrete.
+#Assign 6 to be NA
+df$edad[df$edad == 9] <- NA
+df$sexo[df$sexo == 9] <- NA
+df$verporno[df$verporno == 9] <- NA
+df$verporno_movil[df$verporno_movil == 9] <- NA
+#Recoding based on skip patterns
+df$edad[is.na(df$edad)] <- 0
+df$sexo[is.na(df$sexo)] <- 0
+df$verporno[is.na(df$verporno)] <- 0
+df$verporno_movil[is.na(df$verporno_movil)] <- 0
+```
+
+### **two** univariate graphs
+
+categorical Variable
+
+```{r}
+#ggplot(df, aes(x = edad)) + geom_bar()
+```
+
+elaborate
+
+```{r}
+#ggplot(data = df, aes(x = edad)) +
+ # geom_bar(fill = "skyblue", color = "black") +
+  #ggtitle("Age range") +
+ # xlab("Age") +
+ # ylab("Partinpants") +
+  #theme_minimal()
+```
+
+with pipe
+
+```{r}
+#df %>%
+  #ggplot(aes(x = edad)) +
+  #geom_bar(fill = "skyblue", color = "black") +
+  #ggtitle("Sex type") +
+  #xlab("Sexo") +
+  #ylab("Count") +
+  #theme_minimal()
+```
+
+### Quantitative Variable
+
+```{r}
+#ggplot with df in Quantitative variable and Setup.
+#ggplot(df, aes(x = Edad)) + geom_histogram()
+
+```
+
+elaborate
+
+```{r}
+#ggplot(data = df, aes(x = Edad)) +
+ # geom_histogram(binwidth = 5, fill = "lightblue", color ="black") +
+ # ggtitle("Edad") +
+ # xlab("Value") +
+ # ylab("Frequency") +
+ # theme_minimal()
+```
+
+with pipe
+
+```{r}
+#df %>%
+  #ggplot(aes(x = edad)) +
+ # geom_histogram(binwidth = 5, fill = "lightblue", color = "black") +
+  #Adds binwidth for better visualization
+#  ggtitle("Edad") +
+ # xlab("Value") +
+ # ylab("Frequency") +
+ # ylab("Frequency") +
+ # theme_minimal()
+```
