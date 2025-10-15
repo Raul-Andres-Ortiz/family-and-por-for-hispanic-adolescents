@@ -21,7 +21,6 @@ library(tidyverse)
 library(descr)
 library(knitr)
 library(ggplot2)
-library(PDS)
 library(dplyr)
 ```
 
@@ -51,6 +50,7 @@ head(df)
 ```{r- STAT labelled::look_for}
 #STAT files can make a codebook from their files
 #codebook <- labelled::look_for(df)
+#/bin/sh: 1: r-: not found
 ```
 
 ### Columns Names
@@ -159,12 +159,33 @@ df$verporno[is.na(df$verporno)] <- 0
 df$verporno_movil[is.na(df$verporno_movil)] <- 0
 ```
 
+Filtering age of Interest.
+
+```{r}
+#commented out the broken code
+#library(dplyr)
+
+#df$edad <- as.numeric(df$edad)
+
+#filterededad <- df$edad %>% 
+ # mutate(edad = as.numeric(edad)
+  #subset(filterededad, edad >= 11 & edad <= 18)
+
+edad_filtered <- subset(df$edad, df$edad >= 11 & df$edad <= 18)
+
+print(edad_filtered)
+
+#print(df_filterededad)
+#dim(df_filterededad)
+
+```
+
 ### **two** univariate graphs
 
 categorical Variable
 
 ```{r}
-#ggplot(df, aes(x = edad)) + geom_bar()
+ggplot(df, aes(x = edad_filtered)) + geom_bar()
 ```
 
 elaborate
