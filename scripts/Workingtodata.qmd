@@ -22,9 +22,11 @@ library(descr)
 library(knitr)
 library(ggplot2)
 library(dplyr)
+library(papaja)
+library(tinylabels)
 ```
 
-```{r}
+```{r package For STATA}
 # Packages for SAS, SPSS, and Stata
 library(haven)
 library(labelled)
@@ -180,38 +182,91 @@ print(edad_filtered)
 
 ```
 
+```{r}
+#Gender Varible converting sexo into words
+
+
+  #df$sexo[df$sexo == 0] <- "female"
+  #df$sexo[df$sexo == 1] <- "male"
+  
+  #library(dplyr)
+  
+  #df_updated <- df%>%
+    #mutate(sexo = case_when(
+      #sexo == 1 ~"female",
+      #sexo == 0 ~"male",
+      #TRUE ~ NA_character_
+    #))
+```
+
+# Univariate graphs
+
 ### **two** univariate graphs
 
-categorical Variable
+```{r this is a age graph}
+#univariate graph(categorical variable)
+df %>% 
+  
+ggplot(aes(x = edad)) + 
+  geom_histogram(fill = "lightblue", color = "black") +
+  
+  coord_cartesian(xlim = c(11, 18)) +
+  ggtitle("Age surveyed") +
+  
+  xlab("age ranged") +
+  
+  ylab("age limit")
 
-```{r}
-ggplot(df, aes(x = edad_filtered)) + geom_bar()
+  theme_apa()
+  
+  str(edad)
+  str(edad_filtered)
 ```
 
 elaborate
 
-```{r}
-#ggplot(data = df, aes(x = edad)) +
- # geom_bar(fill = "skyblue", color = "black") +
-  #ggtitle("Age range") +
- # xlab("Age") +
- # ylab("Partinpants") +
-  #theme_minimal()
+```{r sexo graph of male and female seprate with color scheme.}
+#focus on one gender for the questions either boys or girls.
+ggplot(data = df, aes(x = sexo)) +
+  
+ geom_bar(fill = "skyblue", color = "black")+
+  
+  ggtitle("Gender") +
+  
+ xlab("Male and Female") +
+  
+ ylab("amount") +
+  
+  theme_minimal()
 ```
 
-with pipe
-
 ```{r}
-#df %>%
-  #ggplot(aes(x = edad)) +
-  #geom_bar(fill = "skyblue", color = "black") +
-  #ggtitle("Sex type") +
-  #xlab("Sexo") +
-  #ylab("Count") +
-  #theme_minimal()
+ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
+  geom_bar() +
+  scale_fill_manual(
+    values = c("0" = "darkorange", "1" = "steelblue"),
+    labels = c("female", "male")
+  )
 ```
 
-### Quantitative Variable
+## Bivariate
+
+focus on diffrence on verporno & mobil, see who watches more from both genders from the filtered age range.
+
+```{r seprate gender}
+df %>% 
+  ggplot(aes(x = sexo)) 
++
+  geom_bar(fill = "skyblue", color = "black") +
+  
+  facet_wrap(~gender)
+ggtitle("Gender survey")
+xlab("gender Survey") +
+ylab("taken survey")
+theme_()
+```
+
+### Variable
 
 ```{r}
 #ggplot with df in Quantitative variable and Setup.
@@ -222,24 +277,16 @@ with pipe
 elaborate
 
 ```{r}
-#ggplot(data = df, aes(x = Edad)) +
- # geom_histogram(binwidth = 5, fill = "lightblue", color ="black") +
- # ggtitle("Edad") +
- # xlab("Value") +
- # ylab("Frequency") +
- # theme_minimal()
+ggplot(data = df, aes(x = Edad)) +
+ geom_histogram(binwidth = 5, fill = "lightblue", color ="black") +
+ ggtitle("Edad") +
+ xlab("Value") +
+ ylab("Frequency") +
+ theme_minimal()
 ```
 
 with pipe
 
 ```{r}
-#df %>%
-  #ggplot(aes(x = edad)) +
- # geom_histogram(binwidth = 5, fill = "lightblue", color = "black") +
-  #Adds binwidth for better visualization
-#  ggtitle("Edad") +
- # xlab("Value") +
- # ylab("Frequency") +
- # ylab("Frequency") +
- # theme_minimal()
+
 ```
