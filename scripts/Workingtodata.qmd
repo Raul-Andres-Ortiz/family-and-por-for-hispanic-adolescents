@@ -182,29 +182,13 @@ print(edad_filtered)
 
 ```
 
-```{r}
-#Gender Varible converting sexo into words
-
-
-  #df$sexo[df$sexo == 0] <- "female"
-  #df$sexo[df$sexo == 1] <- "male"
-  
-  #library(dplyr)
-  
-  #df_updated <- df%>%
-    #mutate(sexo = case_when(
-      #sexo == 1 ~"female",
-      #sexo == 0 ~"male",
-      #TRUE ~ NA_character_
-    #))
-```
-
 # Univariate graphs
 
-### **two** univariate graphs
+### Age range 11 - 18 graph
 
 ```{r this is a age graph}
-#univariate graph(categorical variable)
+#This doesn't work its not converted into words.
+#univariate graph(age range variable)
 df %>% 
   
 ggplot(aes(x = edad)) + 
@@ -223,10 +207,11 @@ ggplot(aes(x = edad)) +
   str(edad_filtered)
 ```
 
-elaborate
+### Sexo two types of graphs
 
 ```{r sexo graph of male and female seprate with color scheme.}
 #focus on one gender for the questions either boys or girls.
+#This doesn't work its not converted into words.
 ggplot(data = df, aes(x = sexo)) +
   
  geom_bar(fill = "skyblue", color = "black")+
@@ -241,6 +226,7 @@ ggplot(data = df, aes(x = sexo)) +
 ```
 
 ```{r}
+#This shows the legend and correct understanding for which is which but need some minor details to change correctly.
 ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
   geom_bar() +
   scale_fill_manual(
