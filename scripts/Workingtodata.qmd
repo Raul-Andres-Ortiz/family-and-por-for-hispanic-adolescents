@@ -100,7 +100,7 @@ freq(as.ordered(df$sexo), plot = FALSE)
 
 Interpretation
 
-This will depend on who is conducting the survey. When analyzing pre-hand, I thought there would be only two variables, but there are also unknown variables, being 73 NA not wanting to respond, but seeing that one gender Female did more than male is what I had in mind. The difference, though, is not much thinking it would be reverse being Male being on top of female.
+This will depend on who is conducting the survey. When analyzing pre-hand, I thought there would be only two variables, but there are also unknown variables, being 73 NA not wanting to respond, but seeing that one gender. Females did more (1) surveys than males is not what I had in mind (0). The difference, though, is not much, only be less than 250 more or less of a gap, thinking it would be the reverse, that males are on top of the survey than the females.
 
 ### Internet Filter
 
@@ -202,16 +202,16 @@ ggplot(aes(x = edad)) +
   ylab("age limit")
 
   theme_apa()
-  
-  str(edad)
-  str(edad_filtered)
+  #Just to check what is oject is avaible.
+  #str(edad)
+  #str(edad_filtered)
 ```
 
 ### Sexo two types of graphs
 
 ```{r sexo graph of male and female seprate with color scheme.}
 #focus on one gender for the questions either boys or girls.
-#This doesn't work its not converted into words.
+#This works but its not converted into words because it has varibles as the x axis between 0 and 1.
 ggplot(data = df, aes(x = sexo)) +
   
  geom_bar(fill = "skyblue", color = "black")+
@@ -226,53 +226,75 @@ ggplot(data = df, aes(x = sexo)) +
 ```
 
 ```{r}
-#This shows the legend and correct understanding for which is which but need some minor details to change correctly.
+#This shows the legend and correct understanding for the sepration on survey of male and female. In which it would add to the frequency table. 
+#This is a visual difference to see who is male or female on the survey. 
 ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
   geom_bar() +
   scale_fill_manual(
-    values = c("0" = "darkorange", "1" = "steelblue"),
-    labels = c("female", "male")
+    values = c("1" = "pink", "0" = "steelblue"),
+    labels = c("male", "female")
   )
 ```
 
 ## Bivariate
 
-focus on diffrence on verporno & mobil, see who watches more from both genders from the filtered age range.
+focus on diffrence on verporno & mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
 
-```{r seprate gender}
-df %>% 
-  ggplot(aes(x = sexo)) 
-+
-  geom_bar(fill = "skyblue", color = "black") +
-  
-  facet_wrap(~gender)
-ggtitle("Gender survey")
-xlab("gender Survey") +
-ylab("taken survey")
-theme_()
-```
+## Sex gender focus 
 
-### Variable
+## Male focus on bar graph
 
-```{r}
-#ggplot with df in Quantitative variable and Setup.
-#ggplot(df, aes(x = Edad)) + geom_histogram()
+ggplot(data=df) +
 
-```
+geom_point(aes(x= verporno,
 
-elaborate
+y= verporno_movil,
+
+color= sexo) +
+
+method= "lm"
 
 ```{r}
-ggplot(data = df, aes(x = Edad)) +
- geom_histogram(binwidth = 5, fill = "lightblue", color ="black") +
- ggtitle("Edad") +
- xlab("Value") +
- ylab("Frequency") +
- theme_minimal()
+#sexo focus for the bivarte would be male in this code
+ggplot(data = df) +
+  stat_count(aes(x = verporno,
+                   y = verporno_movil,
+                   fill = sexo),
+               
+               #fun.y=mean, 
+               geom_bar="bar")
+
+
+ggplot(df, aes(x = factor(sexo), y = factor(verporno_movil))) +
+  geom_bar() 
+  #scale_fill_manual(
+    #values = c("1" = "pink", "0" = "steelblue"),
+    #labels = c("male", "female")
+
+ggplot(df, aes(x = sexo, fill = verporno_movil,)) +
+  geom_bar(position = "fill")
+             #position_dodge(preserve = "single"))
+
+
+ggplot(data=df) +
+  geom_point(aes(x=verporno, 
+                 y=verporno_movil,
+                 color=sexo),
+               method="lm")
+  #geom_smooth(aes(x=QuantExplanatoryV, 
+                  #y=QuantResponseVar,
+                  #color=CategThirdVar), 
+              method="lm")
+
 ```
 
-with pipe
+### Female focus bar graph
 
 ```{r}
-
+#focus on sexo compare and contrast on female.
+ggplot(data=myData) +
+  stat_summary(aes(x=CategExplanatoryVar,
+                   y=QuantResponseVar), 
+               fun.y=mean, 
+               geom="bar")
 ```
