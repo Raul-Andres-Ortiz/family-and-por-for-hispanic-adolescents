@@ -256,35 +256,33 @@ method= "lm"
 
 ```{r}
 #sexo focus for the bivarte would be male in this code
-ggplot(data = df) +
-  stat_count(aes(x = verporno,
-                   y = verporno_movil,
-                   fill = sexo),
-               
-               #fun.y=mean, 
-               geom_bar="bar")
+ggplot(data=df) +
+  stat_summary(aes(x=verporno_movil,
+                   y=verporno), 
+               fun.y=mean, 
+               geom="bar")
 
 
-ggplot(df, aes(x = factor(sexo), y = factor(verporno_movil))) +
-  geom_bar() 
+#ggplot(df, aes(x = factor(sexo), y = factor(verporno_movil))) +
+ # geom_bar() 
   #scale_fill_manual(
     #values = c("1" = "pink", "0" = "steelblue"),
     #labels = c("male", "female")
 
-ggplot(df, aes(x = sexo, fill = verporno_movil,)) +
-  geom_bar(position = "fill")
+#ggplot(df, aes(x = sexo, fill = verporno_movil,)) +
+ # geom_bar(position = "fill")
              #position_dodge(preserve = "single"))
 #down below would be a 3 variable crossing with example coding.
 
-ggplot(data=df) +
-  geom_point(aes(x=verporno, 
-                 y=verporno_movil,
-                 color=sexo),
-               method="lm")
+#ggplot(data=df) +
+ # geom_point(aes(x=verporno, 
+               #  y=verporno_movil,
+ #                color=sexo),
+#method="lm")
   #geom_smooth(aes(x=QuantExplanatoryV, 
                   #y=QuantResponseVar,
                   #color=CategThirdVar), 
-              method="lm")
+   #           method="lm")
 
 ```
 
