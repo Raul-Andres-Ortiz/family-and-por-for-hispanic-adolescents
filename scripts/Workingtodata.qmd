@@ -240,9 +240,9 @@ ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
 
 focus on diffrence on verporno & mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
 
-## Sex gender focus 
+## Sex gender focus
 
-## Male focus on bar graph
+### Male focus on bar graph
 
 ggplot(data=df) +
 
@@ -274,7 +274,7 @@ ggplot(df, aes(x = factor(sexo), y = factor(verporno_movil))) +
 ggplot(df, aes(x = sexo, fill = verporno_movil,)) +
   geom_bar(position = "fill")
              #position_dodge(preserve = "single"))
-
+#down below would be a 3 variable crossing with example coding.
 
 ggplot(data=df) +
   geom_point(aes(x=verporno, 
@@ -292,9 +292,10 @@ ggplot(data=df) +
 
 ```{r}
 #focus on sexo compare and contrast on female.
-ggplot(data=myData) +
-  stat_summary(aes(x=CategExplanatoryVar,
-                   y=QuantResponseVar), 
+ggplot(data=df) +
+  stat_summary(aes(x=sexo,
+                   y=verporno_movil), 
                fun.y=mean, 
                geom="bar")
+#for this graph it doesn't show me much but need to redo it to know and categorizes t
 ```
