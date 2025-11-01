@@ -297,5 +297,5 @@ ggplot(data=df) +
                    y=verporno_movil), 
                fun.y=mean, 
                geom="bar")
-#for this graph it doesn't show me much but need to redo it to know and categorizes t
+#for this graph it doesn't show me much but need to redo it to know and categorizes the months or dates on how much each sexo watch for both genders.
 ```
