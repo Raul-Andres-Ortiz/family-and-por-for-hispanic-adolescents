@@ -231,7 +231,7 @@ ggplot(data = df, aes(x = sexo)) +
 ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
   geom_bar() +
   scale_fill_manual(
-    values = c("1" = "pink", "0" = "steelblue"),
+    values = c("Female" = "pink", "Male" = "steelblue"),
     labels = c("male", "female")
   )
 ```
@@ -242,21 +242,21 @@ focus on diffrence on verporno & mobil, see who watches more from both genders f
 
 ## Sex gender focus
 
-### Male focus on bar graph
-
-ggplot(data=df) +
-
-geom_point(aes(x= verporno,
-
-y= verporno_movil,
-
-color= sexo) +
-
-method= "lm"
+### Numerical to words for graph of Sexo.
 
 ```{r}
-#sexo focus for the bivarte would be male in this code
-ggplot(data=df) +
+#Going to try Numerial to words 
+df$sexo <- factor(df$sexo, 
+        labels = c("Male", "Female"))
+
+
+```
+
+### Male focus on bar graph
+
+```{r}
+#sexo focus for the bivarte would be male and age range for how
+ggplot(data=edad_filtered) +
   stat_summary(aes(x=verporno_movil,
                    y=verporno), 
                fun.y=mean, 
@@ -284,6 +284,62 @@ ggplot(data=df) +
                   #color=CategThirdVar), 
    #           method="lm")
 
+#Its not the final but it passes for now. I wanted it a third varible compare and contrast.
+age_filtered_data <- df %>% 
+  filter(edad > 10 & edad < 19)
+summary(age_filtered_data)
+
+age_filtered_data
+  ggplot(data = age_filtered_data) +
+    stat_summary(aes(x= sexo,
+                   y=verporno, 
+                 color=verporno_movil),
+               fun.y=mean, 
+               geom="bar")
+   ggplot(age_filtered_data, aes(x = sexo, y = verporno, fill = verporno_movil)) +
+      geom_bar(stat = "identity", position = position_dodge()) +
+      labs(title = "Side-by-Side Bar Graph",
+           x = "Category",
+           y = "Value") +
+      theme_minimal()
+```
+
+```{r}
+#
+age_filtered_data <- raw_categorical_data %>%
+  pivot_longer(
+    cols = c(verporno_movil, verporno),
+    names_to = "Device",
+    values_to = "Frequency_Code"
+  ) %>%
+  # Convert numeric codes to descriptive labels (optional but highly recommended)
+  mutate( #to do levels "1" = "4 times/week
+    Frequency_Code = factor(Frequency_Code,
+                            levels = c(1, 2, 3),
+                            labels = c("4 times/week", "3 times/day", "Daily")), #change these to what they really are
+    Device = case_when(
+      Device == "verporno_movil" ~ "Mobile",
+      Device == "verporno_pc" ~ "PC",
+      TRUE ~ Device
+    )
+  )
+
+print("Long Categorical Data:")
+print(long_categorical_data)
+```
+
+```{r}
+ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
+  geom_bar(position = "dodge") +
+  # We can further separate by gender using facets or map gender to another aesthetic
+  facet_wrap(~ gender) +
+  labs(
+    title = "Frequency of Activity by Gender and Device",
+    x = "Frequency of Use (Category)",
+    y = "Count of Individuals",
+    fill = "Device Type"
+  ) +
+  theme_minimal()
 ```
 
 ### Female focus bar graph
