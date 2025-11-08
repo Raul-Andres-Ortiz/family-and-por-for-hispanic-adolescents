@@ -131,7 +131,7 @@ Interpretation
 freq(as.ordered(df$verporno_movil), plot = FALSE)
 ```
 
-Interpretation
+**Interpretation**
 
 0 being never. 1 being less than a day a month. 2 being 1-3 days a month. 3 being 1-2 days a week. 4 being 3 or more days a week. A numerical placeholder of not wanting to answer, with a frequency of 0.
 
@@ -161,7 +161,11 @@ df$verporno[is.na(df$verporno)] <- 0
 df$verporno_movil[is.na(df$verporno_movil)] <- 0
 ```
 
-Filtering age of Interest.
+**Interpretation**
+
+I used the example for the missing data for the ones that I would use when coding. At first, I would be using a different number to be implemented, but changed my mind to the example and is. na would be null. If any errors are seen in this data missing I would like feedback to know where I can check more thoroughly and correct them.
+
+Filtering the age of Interest.
 
 ```{r}
 #commented out the broken code
@@ -181,6 +185,10 @@ print(edad_filtered)
 #dim(df_filterededad)
 
 ```
+
+**Interpretation**
+
+For this coding, I would like to focus and filter the age observation to check the teenagers' surveys when they are exposed to porn, either via pc or mobile, separating the other ages that I don't want to focus on. Focus groups are 11-18, in which there are large amounts of surveys and participants from males and females in this age gap, compared to other sections, 10 and below, also 19-25
 
 # Univariate graphs
 
@@ -207,23 +215,11 @@ ggplot(aes(x = edad)) +
   #str(edad_filtered)
 ```
 
-### Sexo two types of graphs
+**Interpretation**
 
-```{r sexo graph of male and female seprate with color scheme.}
-#focus on one gender for the questions either boys or girls.
-#This works but its not converted into words because it has varibles as the x axis between 0 and 1.
-ggplot(data = df, aes(x = sexo)) +
-  
- geom_bar(fill = "skyblue", color = "black")+
-  
-  ggtitle("Gender") +
-  
- xlab("Male and Female") +
-  
- ylab("amount") +
-  
-  theme_minimal()
-```
+Although the ggplot shows on edad data, which is a continuous graph and not a filtered one is because I tried to shorten the graph to one of the focus groups' age of 11- 18, and you can see in the graph the large amounts of people in those age groups.
+
+### Sexo graphs
 
 ```{r}
 #This shows the legend and correct understanding for the sepration on survey of male and female. In which it would add to the frequency table. 
@@ -236,9 +232,13 @@ ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
   )
 ```
 
+**Interpretation**
+
+For the graph of Sexo. I used the visual to know what genders are there within the study and how many each section has to have a clear understanding of which has the most people. At first, I thought it would be male, but I came to realize that it was female. Also, I would use them to determine who watches more porn, either pc or mobile, between both genders, and question myself if they're going to affect the population reason because there are more females than males, as shown in the graph.
+
 ## Bivariate
 
-focus on diffrence on verporno & mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
+focus on the difference between verporno & mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
 
 ## Sex gender focus
 
