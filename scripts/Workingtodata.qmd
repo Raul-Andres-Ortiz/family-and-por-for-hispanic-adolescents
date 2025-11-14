@@ -40,7 +40,8 @@ library(labelled)
 file_path <- file.path("Data")
 
 # Load the CSV file into a dataframe (automatically a tibble)
-scripts <-read_dta(file_path)
+data.dta <-read_dta(file_path)
+#need to rewrote this part.
 
 # View the first few words
 #head(df)
