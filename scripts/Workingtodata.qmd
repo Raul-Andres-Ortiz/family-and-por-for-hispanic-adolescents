@@ -8,7 +8,7 @@ format: html
 ## File setup: Install the required packages
 
 ```{r install.packages}
-install.packages("tidyverse")
+#install.packages("tidyverse")
 
 ```
 
@@ -37,13 +37,13 @@ library(labelled)
 
 ```{r load-data}
 # Define the file path (going up one level from /scripts to the main directory)
-file_path <- file.path("..", "data", "data.dta")
+file_path <- file.path("Data")
 
 # Load the CSV file into a dataframe (automatically a tibble)
-df <-read_dta(file_path)
+scripts <-read_dta(file_path)
 
 # View the first few words
-head(df)
+#head(df)
 
 ```
 
