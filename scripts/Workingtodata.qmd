@@ -33,18 +33,18 @@ library(labelled)
 
 ```
 
-### Load-Data to File Path
+### 😢Load-Data to File Path
 
 ```{r load-data}
 # Define the file path (going up one level from /scripts to the main directory)
-file_path <- file.path("Data")
+file_path <- file.path("..","data","data.dta")
 
 # Load the CSV file into a dataframe (automatically a tibble)
-data.dta <-read_dta(file_path)
-#need to rewrote this part.
+df <- read_csv(file_path)
+#need to rewrite this part.
 
 # View the first few words
-#head(df)
+head(df)
 
 ```
 
