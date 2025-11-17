@@ -40,7 +40,7 @@ library(labelled)
 file_path <- file.path("..", "data", "data.dta")
 
 # Load the CSV file into a dataframe (automatically a tibble)
-df <- read_csv(file_path)
+df <- read_dta(file_path)
 #need to rewrite this part.
 
 # View the first few words
@@ -316,8 +316,8 @@ age_filtered_data <- raw_categorical_data %>%
   # Convert numeric codes to descriptive labels (optional but highly recommended)
   mutate( #to do levels "1" = "4 times/week
     Frequency_Code = factor(Frequency_Code,
-                            levels = c(1, 2, 3, 4),
-                            labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week")), #change these to what they really are
+                            levels = c(1, 2, 3, 4, 5),
+                            labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week","Never")), #change these to what they really are
     Device = case_when(
       Device == "verporno_movil" ~ "Mobile",
       Device == "verporno_pc" ~ "PC",
