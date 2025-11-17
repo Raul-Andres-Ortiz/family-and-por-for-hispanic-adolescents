@@ -253,7 +253,9 @@ df$sexo <- factor(df$sexo,
 
 ```
 
-### Male focus on bar graph
+### Male focus on barcheck
+
+❌rchecking chunk
 
 ```{r}
 #sexo focus for the bivarte would be male and age range for how
@@ -305,16 +307,18 @@ age_filtered_data
       theme_minimal()
 ```
 
+checking r chucks
+
 ```{r}
-#
+#Object 'raw_categorical_data' not found error
 age_filtered_data <- raw_categorical_data %>%
   pivot_longer(
     cols = c(verporno_movil, verporno),
     names_to = "Device",
     values_to = "Frequency_Code"
   ) %>%
-  # Convert numeric codes to descriptive labels (optional but highly recommended)
-  mutate( #to do levels "1" = "4 times/week
+
+  mutate( 
     Frequency_Code = factor(Frequency_Code,
                             levels = c(1, 2, 3, 4, 5),
                             labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week","Never")), #change these to what they really are
@@ -330,6 +334,7 @@ print(long_categorical_data)
 ```
 
 ```{r}
+#plot is missing 'gender and Layer 1 is missing 'gender'
 ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
   geom_bar(position = "dodge") +
   # We can further separate by gender using facets or map gender to another aesthetic
