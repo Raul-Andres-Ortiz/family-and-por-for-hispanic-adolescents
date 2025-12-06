@@ -239,9 +239,9 @@ For the graph of Sexo. I used the visual to know what genders are there within t
 
 ## Bivariate
 
-focus on the difference between verporno & mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
+focus on the difference between verporno & Mobil, see who watches more from both genders from the filtered age range. Wanting to focus who is doing more porn between male and female.
 
-## Sex gender focus
+## Focus and differentiating between Verporno & Verporno_movil
 
 ### Numerical to words for graph of Sexo.
 
@@ -253,28 +253,17 @@ df$sexo <- factor(df$sexo,
 
 ```
 
-### Male focus on barcheck
-
-❌rchecking chunk
+### ✔️Verporno focus on barcheck
 
 ```{r}
 #sexo focus for the bivarte would be male and age range for how
-ggplot(data=edad_filtered) +
-  stat_summary(aes(x=verporno_movil,
-                   y=verporno), 
-               fun.y=mean, 
-               geom="bar")
+#ggplot(data=edad_filtered) +
+ # stat_summary(aes(x=verporno_movil,
+           #        y=verporno), 
+           #    fun.y=mean, 
+            #   geom="bar")
 
 
-#ggplot(df, aes(x = factor(sexo), y = factor(verporno_movil))) +
- # geom_bar() 
-  #scale_fill_manual(
-    #values = c("1" = "pink", "0" = "steelblue"),
-    #labels = c("male", "female")
-
-#ggplot(df, aes(x = sexo, fill = verporno_movil,)) +
- # geom_bar(position = "fill")
-             #position_dodge(preserve = "single"))
 #down below would be a 3 variable crossing with example coding.
 
 #ggplot(data=df) +
@@ -288,30 +277,40 @@ ggplot(data=edad_filtered) +
    #           method="lm")
 
 #Its not the final but it passes for now. I wanted it a third varible compare and contrast.
-age_filtered_data <- df %>% 
-  filter(edad > 10 & edad < 19)
-summary(age_filtered_data)
+#age_filtered_data <- df %>% 
+ # filter(edad > 10 & edad < 19)
+#summary(age_filtered_data)
 
-age_filtered_data
-  ggplot(data = age_filtered_data) +
-    stat_summary(aes(x= sexo,
-                   y=verporno, 
-                 color=verporno_movil),
-               fun.y=mean, 
-               geom="bar")
-   ggplot(age_filtered_data, aes(x = sexo, y = verporno, fill = verporno_movil)) +
-      geom_bar(stat = "identity", position = position_dodge()) +
-      labs(title = "Side-by-Side Bar Graph",
-           x = "Category",
-           y = "Value") +
-      theme_minimal()
+#age_filtered_data
+ # ggplot(data = age_filtered_data) +
+   # stat_summary(aes(x= sexo,
+          #         y=as.factor(verporno), 
+          #       color=as.factor(verporno_movil)),
+          #     fun.y=mean, 
+          #     geom="bar")
+  
+  ggplot(df, aes(x = verporno, fill = sexo)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Seeing difference within Verporno",
+       x = "times per days or months",
+       y = "People watching erotic",
+       fill = "Gender") +
+  theme_minimal()
+  #Intepertation on the 0-4 varibales descriptions. For verporno_PC
+  
 ```
 
-checking r chucks
+#### Interpretation
+
+**"Never", "less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week".**
+
+As you can see this bivariate shows the difference between the sexo and verporno. I'm hoping its within the age focus group that I'm studying. Anyway on the x-axis you can see the times per days or month between both genders watching porno. The bold paragraph above would corelate to the number variables on the X-axis. As you can see the only difference would be 0=never and variables 1-4 in which more males watch erotic visuals ,also there is a big gap in which female never watch erotic visual compared to males. This bivariate graph focus on the variables Verporno(hoping its pc) and sexo.
+
+***Not using this coding (don't know if would affect the graphs)***
 
 ```{r}
 #Object 'raw_categorical_data' not found error
-age_filtered_data <- raw_categorical_data %>%
+age_filtered_data <- df$verporno %>%
   pivot_longer(
     cols = c(verporno_movil, verporno),
     names_to = "Device",
@@ -348,14 +347,38 @@ ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
   theme_minimal()
 ```
 
-### Female focus bar graph
+Not using this coding. Its example coding.
 
 ```{r}
+#Not using this coding
 #focus on sexo compare and contrast on female.
-ggplot(data=df) +
-  stat_summary(aes(x=sexo,
-                   y=verporno_movil), 
-               fun.y=mean, 
-               geom="bar")
+#ggplot(data=df) +
+ # stat_summary(aes(x=sexo,
+  #                 y=verporno_movil), 
+   #            fun.y=mean, 
+    #           geom="bar")
 #for this graph it doesn't show me much but need to redo it to know and categorizes the months or dates on how much each sexo watch for both genders.
+
 ```
+
+### ✔️Verporno_movil focus bar graph
+
+```{r}
+ggplot(df, aes(x = verporno_movil, fill = sexo)) +
+  geom_bar(position = "dodge") +
+  labs(title = "variable by variable title",
+       x = "times per days or months",
+       y = "Count",
+       fill = "Gender") +
+  theme_minimal()
+  
+  
+```
+
+#### Interpretation
+
+**"Never", "less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week".**
+
+As you can see this bivariate shows the difference between the sexo and verporno_movil. I'm hoping its within the age focus group that I'm studying. Anyway on the x-axis you can see the times per days or month between both genders watching porno in Mobil access. The bold paragraph above would correlate to the number variables on the X-axis. As you can see the only difference would be 0=never and variables 1-4 in which more males watch erotic visuals in mobiles ,also there is a big gap in which female never watch erotic visual compared to males. This bivariate graph focus on the variables Verporno(hoping its PC) and sexo.
+
+I also want to include that the focus graphs of Verporno and Verporno_movil are different you can see the differences within the frequency table between both variables and that the difference are minimal but there is some difference between the two variables focus.
