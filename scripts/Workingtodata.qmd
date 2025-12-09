@@ -196,7 +196,7 @@ For this coding, I would like to focus and filter the age observation to check t
 ### Age range 11 - 18 graph
 
 ```{r this is a age graph}
-#This doesn't work its not converted into words.
+
 #univariate graph(age range variable)
 df %>% 
   
