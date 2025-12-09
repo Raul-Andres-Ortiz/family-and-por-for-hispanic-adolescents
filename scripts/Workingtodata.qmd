@@ -60,7 +60,7 @@ head(df)
 
 ```{r}
 #check column names
-colnames(df)
+#colnames(df)
 ```
 
 check the column names up
@@ -69,14 +69,14 @@ View summary statistics
 
 ```{r}
 #View summary statistics
-summary(df)
+#summary(df)
 ```
 
 Check the variable types.
 
 ```{r glimpse}
 #Check data sturcture
-glimpse(df)
+#glimpse(df)
 ```
 
 ## ✔️Frequency Tables
@@ -102,17 +102,6 @@ freq(as.ordered(df$sexo), plot = FALSE)
 Interpretation
 
 This will depend on who is conducting the survey. When analyzing pre-hand, I thought there would be only two variables, but there are also unknown variables, being 73 NA not wanting to respond, but seeing that one gender. Females did more (1) surveys than males is not what I had in mind (0). The difference, though, is not much, only be less than 250 more or less of a gap, thinking it would be the reverse, that males are on top of the survey than the females.
-
-### Internet Filter
-
-```{r freq- pcfiltro}
-# Frequency table for pcfiltro if internet's filter at home.
-freq(as.ordered(df$pcfiltro), plot = FALSE)
-```
-
-Interpretation
-
-This will be about whether they have an internet filter at their home. Seeing that most are zero(No), being above other variables. Yes, being the integer of 1, and 2 being that they don't know if they have a filter. No being in the lead, having 1589 within all categories, but some of its missing a dataset of NA's 121 that needs to be explored.
 
 ### Verporno
 
@@ -310,55 +299,46 @@ As you can see this bivariate shows the difference between the sexo and verporno
 
 ```{r}
 #Object 'raw_categorical_data' not found error
-age_filtered_data <- df$verporno %>%
-  pivot_longer(
-    cols = c(verporno_movil, verporno),
-    names_to = "Device",
-    values_to = "Frequency_Code"
-  ) %>%
+#age_filtered_data <- df$verporno %>%
+ # pivot_longer(
+  #  cols = c(verporno_movil, verporno),
+ #   names_to = "Device",
+#    values_to = "Frequency_Code"
+ # ) %>%
 
-  mutate( 
-    Frequency_Code = factor(Frequency_Code,
-                            levels = c(1, 2, 3, 4, 5),
-                            labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week","Never")), #change these to what they really are
-    Device = case_when(
-      Device == "verporno_movil" ~ "Mobile",
-      Device == "verporno_pc" ~ "PC",
-      TRUE ~ Device
-    )
-  )
+  #mutate( 
+   # Frequency_Code = factor(Frequency_Code,
+    #                        levels = c(1, 2, 3, 4, 5),
+     #                       labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week","Never")), #change these to what they really are
+    #Device = case_when(
+     # Device == "verporno_movil" ~ "Mobile",
+      #Device == "verporno_pc" ~ "PC",
+      #TRUE ~ Device
+    #)
+  #)
 
-print("Long Categorical Data:")
-print(long_categorical_data)
+#print("Long Categorical Data:")
+#print(long_categorical_data)
 ```
 
 ```{r}
 #plot is missing 'gender and Layer 1 is missing 'gender'
-ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
-  geom_bar(position = "dodge") +
+#ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
+ # geom_bar(position = "dodge") +
   # We can further separate by gender using facets or map gender to another aesthetic
-  facet_wrap(~ gender) +
-  labs(
-    title = "Frequency of Activity by Gender and Device",
-    x = "Frequency of Use (Category)",
-    y = "Count of Individuals",
-    fill = "Device Type"
-  ) +
-  theme_minimal()
+  #facet_wrap(~ gender) +
+  #labs(
+   # title = "Frequency of Activity by Gender and Device",
+    #x = "Frequency of Use (Category)",
+    #y = "Count of Individuals",
+    #fill = "Device Type"
+  #) +
+  #theme_minimal()
 ```
 
 Not using this coding. Its example coding.
 
-```{r}
-#Not using this coding
-#focus on sexo compare and contrast on female.
-#ggplot(data=df) +
- # stat_summary(aes(x=sexo,
-  #                 y=verporno_movil), 
-   #            fun.y=mean, 
-    #           geom="bar")
-#for this graph it doesn't show me much but need to redo it to know and categorizes the months or dates on how much each sexo watch for both genders.
-
+```{}
 ```
 
 ### ✔️Verporno_movil focus bar graph
