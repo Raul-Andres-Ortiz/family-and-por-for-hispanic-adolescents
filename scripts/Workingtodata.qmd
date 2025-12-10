@@ -48,14 +48,6 @@ head(df)
 
 ```
 
-### ❌STAT labeled: looking for
-
-```{r- STAT labelled::look_for}
-#STAT files can make a codebook from their files
-#codebook <- labelled::look_for(df)
-#/bin/sh: 1: r-: not found
-```
-
 ### Columns Names
 
 ```{r}
@@ -79,9 +71,20 @@ Check the variable types.
 #glimpse(df)
 ```
 
-## ✔️Frequency Tables
+# Project Spanish Sample
 
-Using the descr package to create frequency tables.
+This study will focus a Spanish sample study used in different countries in which focus consumption erotic visual on teenagers of 11-18.\
+**Research Question**
+
+ For the ages 11-18 are their a differences in gender in viewing porn on a computer?
+
+For the ages 11-18 are their a differences in gender in viewing porn on a mobile?
+
+The alternative hypothesis that was made from two categorical variables would be sexo and (verporno)(verporno_movil)
+
+**H1 There is a difference between gender on viewing exotic material.  H2. There is a difference between gender on viewing exotic material through mobile.**
+
+## ✔️Frequency Tables
 
 ### Edad = Age
 
@@ -90,7 +93,9 @@ Using the descr package to create frequency tables.
 freq(as.ordered(df$edad), plot = FALSE)
 ```
 
-Interpretation: While I am in the US, this study is a Spanish research study. I will use age as a variable or limit the analyses to a certain age range based on the exploration of the research. The finding that I saw was that there are more surveys between ages 12- 17 being with a frequency of 10. There is also some NA being 17 in which could affect the study if assigned an age number, and need to explore more to verify where it comes from, and there are some age groups that have a frequency of zero, but it's not included.
+Interpretation
+
+This study is a Spanish research study. I will use age as a variable or limit the analyses to a certain age range based on the exploration of the research. The finding that I saw was that there are more surveys between ages 12- 17 being with a frequency of 10. There is also some NA being 17 in which could affect the study if assigned an age number, and need to explore more to verify where it comes from, and there are some age groups that have a frequency of zero, but it's not included.
 
 ### Sexo "Sex"
 
@@ -105,7 +110,7 @@ This will depend on who is conducting the survey. When analyzing pre-hand, I tho
 
 ### Verporno
 
-```{r}
+```{r verporno}
 # (If they see erotic material) frequency on verporno on a PC
 freq(as.ordered(df$verporno), plot = FALSE)
 ```
@@ -116,7 +121,7 @@ Interpretation
 
 ### Verporno_mobil
 
-```{r}
+```{r verporno_movil}
 # If they seeing erotic material frequency on verporno_mobil.
 freq(as.ordered(df$verporno_movil), plot = FALSE)
 ```
@@ -137,7 +142,7 @@ For the first one, it would be a filter from PC and mobile, and relate it to age
 
 Missing variables(NA) for when using them. Edad(17), verporno(331), moblie(334), sexo(73).
 
-```{r missing data for question}
+```{r Missing data}
 #variable using 9 for NA but need to be concrete.
 #Assign 6 to be NA
 df$edad[df$edad == 9] <- NA
@@ -157,22 +162,13 @@ I used the example for the missing data for the ones that I would use when codin
 
 Filtering the age of Interest.
 
-```{r}
-#commented out the broken code
-#library(dplyr)
-
-#df$edad <- as.numeric(df$edad)
-
-#filterededad <- df$edad %>% 
- # mutate(edad = as.numeric(edad)
-  #subset(filterededad, edad >= 11 & edad <= 18)
+```{r filter of age}
+#this would be a filteration of age range between 11-18
 
 edad_filtered <- subset(df$edad, df$edad >= 11 & df$edad <= 18)
 
 print(edad_filtered)
 
-#print(df_filterededad)
-#dim(df_filterededad)
 
 ```
 
@@ -200,14 +196,12 @@ ggplot(aes(x = edad)) +
   ylab("age limit")
 
   theme_apa()
-  #Just to check what is oject is avaible.
-  #str(edad)
-  #str(edad_filtered)
+  
 ```
 
 **Interpretation**
 
-Although the ggplot shows on edad data, which is a continuous graph and not a filtered one is because I tried to shorten the graph to one of the focus groups' age of 11- 18, and you can see in the graph the large amounts of people in those age groups.
+This shows a filtered edad data reason would be to I tried to focus groups' ages of 11- 18.
 
 ### Sexo graphs
 
@@ -224,7 +218,7 @@ ggplot(df, aes(x = factor(sexo), fill = factor(sexo))) +
 
 **Interpretation**
 
-For the graph of Sexo. I used the visual to know what genders are there within the study and how many each section has to have a clear understanding of which has the most people. At first, I thought it would be male, but I came to realize that it was female. Also, I would use them to determine who watches more porn, either pc or mobile, between both genders, and question myself if they're going to affect the population reason because there are more females than males, as shown in the graph.
+For the graph of Sexo. I used the visual to know what genders are there within the sample survey and how many each section has in order have a clear understanding . At first, I thought it would be male, but I came to realize that it was female. Also, I would use them to determine a difference in gender on viewing porn, either pc or mobile.
 
 ## Bivariate
 
@@ -242,42 +236,10 @@ df$sexo <- factor(df$sexo,
 
 ```
 
-### ✔️Verporno focus on barcheck
+### ✔️Verporno Visualization
 
 ```{r}
-#sexo focus for the bivarte would be male and age range for how
-#ggplot(data=edad_filtered) +
- # stat_summary(aes(x=verporno_movil,
-           #        y=verporno), 
-           #    fun.y=mean, 
-            #   geom="bar")
-
-
-#down below would be a 3 variable crossing with example coding.
-
-#ggplot(data=df) +
- # geom_point(aes(x=verporno, 
-               #  y=verporno_movil,
- #                color=sexo),
-#method="lm")
-  #geom_smooth(aes(x=QuantExplanatoryV, 
-                  #y=QuantResponseVar,
-                  #color=CategThirdVar), 
-   #           method="lm")
-
-#Its not the final but it passes for now. I wanted it a third varible compare and contrast.
-#age_filtered_data <- df %>% 
- # filter(edad > 10 & edad < 19)
-#summary(age_filtered_data)
-
-#age_filtered_data
- # ggplot(data = age_filtered_data) +
-   # stat_summary(aes(x= sexo,
-          #         y=as.factor(verporno), 
-          #       color=as.factor(verporno_movil)),
-          #     fun.y=mean, 
-          #     geom="bar")
-  
+ 
   ggplot(df, aes(x = verporno, fill = sexo)) +
   geom_bar(position = "dodge") +
   labs(title = "Seeing difference within Verporno",
@@ -285,7 +247,7 @@ df$sexo <- factor(df$sexo,
        y = "People watching erotic",
        fill = "Gender") +
   theme_minimal()
-  #Intepertation on the 0-4 varibales descriptions. For verporno_PC
+  
   
 ```
 
@@ -295,53 +257,7 @@ df$sexo <- factor(df$sexo,
 
 As you can see this bivariate shows the difference between the sexo and verporno. I'm hoping its within the age focus group that I'm studying. Anyway on the x-axis you can see the times per days or month between both genders watching porno. The bold paragraph above would corelate to the number variables on the X-axis. As you can see the only difference would be 0=never and variables 1-4 in which more males watch erotic visuals ,also there is a big gap in which female never watch erotic visual compared to males. This bivariate graph focus on the variables Verporno(hoping its pc) and sexo.
 
-***Not using this coding (don't know if would affect the graphs)***
-
-```{r}
-#Object 'raw_categorical_data' not found error
-#age_filtered_data <- df$verporno %>%
- # pivot_longer(
-  #  cols = c(verporno_movil, verporno),
- #   names_to = "Device",
-#    values_to = "Frequency_Code"
- # ) %>%
-
-  #mutate( 
-   # Frequency_Code = factor(Frequency_Code,
-    #                        levels = c(1, 2, 3, 4, 5),
-     #                       labels = c("less than 1 day a month", "1-3 days a month", "1-2 days per week", "3 or more days a week","Never")), #change these to what they really are
-    #Device = case_when(
-     # Device == "verporno_movil" ~ "Mobile",
-      #Device == "verporno_pc" ~ "PC",
-      #TRUE ~ Device
-    #)
-  #)
-
-#print("Long Categorical Data:")
-#print(long_categorical_data)
-```
-
-```{r}
-#plot is missing 'gender and Layer 1 is missing 'gender'
-#ggplot(age_filtered_data, aes(x = Frequency_Code, fill = Device)) +
- # geom_bar(position = "dodge") +
-  # We can further separate by gender using facets or map gender to another aesthetic
-  #facet_wrap(~ gender) +
-  #labs(
-   # title = "Frequency of Activity by Gender and Device",
-    #x = "Frequency of Use (Category)",
-    #y = "Count of Individuals",
-    #fill = "Device Type"
-  #) +
-  #theme_minimal()
-```
-
-Not using this coding. Its example coding.
-
-```         
-```
-
-### ✔️Verporno_movil focus bar graph
+### ✔️Verporno_movil Visualization
 
 ```{r}
 ggplot(df, aes(x = verporno_movil, fill = sexo)) +
@@ -352,7 +268,6 @@ ggplot(df, aes(x = verporno_movil, fill = sexo)) +
        fill = "Gender") +
   theme_minimal()
   
-  
 ```
 
 #### Interpretation
@@ -362,3 +277,7 @@ ggplot(df, aes(x = verporno_movil, fill = sexo)) +
 As you can see this bivariate shows the difference between the sexo and verporno_movil. I'm hoping its within the age focus group that I'm studying. Anyway on the x-axis you can see the times per days or month between both genders watching porno in Mobil access. The bold paragraph above would correlate to the number variables on the X-axis. As you can see the only difference would be 0=never and variables 1-4 in which more males watch erotic visuals in mobiles ,also there is a big gap in which female never watch erotic visual compared to males. This bivariate graph focus on the variables Verporno(hoping its PC) and sexo.
 
 I also want to include that the focus graphs of Verporno and Verporno_movil are different you can see the differences within the frequency table between both variables and that the difference are minimal but there is some difference between the two variables focus.
+
+**Since Gender in this dataset is categorical and time spent on viewing exotic material is also categorical, a Chi -Square test will be used to assess the differences.**
+
+**Since Gender in this dataset is categorical and time spent on viewing exotic material mobile is also categorical, a Chi -Square test will be used to assess the differences.**
