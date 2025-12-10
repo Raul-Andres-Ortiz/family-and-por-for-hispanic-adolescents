@@ -338,7 +338,7 @@ As you can see this bivariate shows the difference between the sexo and verporno
 
 Not using this coding. Its example coding.
 
-```{}
+```         
 ```
 
 ### ✔️Verporno_movil focus bar graph
